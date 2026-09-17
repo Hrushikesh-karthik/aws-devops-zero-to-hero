@@ -28,9 +28,5 @@ phases:
   post_build:
     commands:
       - echo "Build completed successfully!"
-      - echo "Triggering deployment..."
-      - |
-        aws ssm send-command \
-          --instance-ids i-038147818f45e2468 \
-          --document-name "AWS-RunShellScript" \
+
           --parameters commands="/home/ubuntu/deploy.sh"
